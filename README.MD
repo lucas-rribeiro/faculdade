@@ -2,5 +2,5 @@
 
 ### Como subir o servidor
 ```bash
-..\..\php\php.exe -S localhost:8282 -t .
+php -S localhost:8282 -t .
 ```
