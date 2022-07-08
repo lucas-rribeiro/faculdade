@@ -43,4 +43,23 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    function populateTable() {
+        fetch('/list.php')
+            .then(res => res.json())
+            .then(data => {
+                const table = document.querySelector('#lista-usuario')
+                const rows = data.map(({ nome, email, telefone }) => `
+                <tr>
+                    <td>${nome}</td>
+                    <td>${email}</td>
+                    <td>${telefone}</td>
+                </tr>
+                `).join('')
+
+                table.insertAdjacentHTML('afterbegin', rows)
+            })
+    }
+
+    populateTable()
+
 });
